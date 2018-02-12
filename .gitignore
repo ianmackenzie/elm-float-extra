@@ -2,3 +2,5 @@
 elm-stuff
 # elm-repl generated files
 repl-temp-*
+# elm-verify-examples generated files
+tests/VerifyExamples
