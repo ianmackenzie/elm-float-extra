@@ -20,8 +20,8 @@ Float.interpolateFrom 2 -2 0.75
 --> -1
 ```
 
-Currently the only functions that have been imlemented are ones that were needed
-by the `elm-interval` and `elm-geometry` packages, but I'm happy to consider
-pull requests for other generally-useful functionality! Please [open a new issue](https://github.com/ianmackenzie/elm-interval/issues)
-first, though, so we can discuss whether your proposed addition fits in this
-package.
+Currently the only functions that have been implemented are ones that were
+needed by the `elm-interval` and `elm-geometry` packages, but I'm happy to
+consider pull requests for other generally-useful functionality! Please
+[open a new issue](https://github.com/ianmackenzie/elm-interval/issues) first,
+though, so we can discuss whether your proposed addition fits in this package.
