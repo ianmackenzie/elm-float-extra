@@ -34,5 +34,5 @@ install:
     fi
 
 script:
-  - elm-verify-examples
+  - $TRAVIS_BUILD_DIR/sysconfcpus/bin/sysconfcpus -n 2 elm-verify-examples
   - $TRAVIS_BUILD_DIR/sysconfcpus/bin/sysconfcpus -n 2 elm-test
