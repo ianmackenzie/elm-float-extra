@@ -22,6 +22,6 @@ Float.interpolateFrom 10 5 0.1
 
 Currently the only functions that have been implemented are ones that were
 needed by the `elm-interval` and `elm-geometry` packages, but I'm happy to
-consider pull requests for other generally-useful functionality! Please
-[open a new issue](https://github.com/ianmackenzie/elm-interval/issues) first,
-though, so we can discuss whether your proposed addition fits in this package.
+consider pull requests for other generally-useful functionality. Please
+[open a new issue](https://github.com/ianmackenzie/elm-interval/issues) before
+starting work, though, so we can discuss different approaches!
