@@ -1,7 +1,7 @@
 module Float.Extra exposing (equalWithin, interpolateFrom)
 
 {-| Convenience functions for working with `Float` values. Examples assume that
-this module has been imported using
+this module has been imported using:
 
     import Float.Extra as Float
 
