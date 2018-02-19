@@ -1,5 +1,5 @@
 This package contains some basic utilities for working with `Float` values in
-[Elm](elm-lang.org). The current (very limited) API can be summed up by a few of
+[Elm](http://elm-lang.org). The current (very limited) API can be summed up by a few of
 the examples from the docs:
 
 ```elm
