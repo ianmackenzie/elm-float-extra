@@ -13,11 +13,11 @@ Float.equalWithin 1e-6 1.9999 2.0001
 Float.equalWithin 1e-3 1.9999 2.0001
 --> True
 
-Float.interpolateFrom 5 10 0.5
---> 7.5
+Float.interpolateFrom 5 10 0.6
+--> 8
 
-Float.interpolateFrom 2 -2 0.75
---> -1
+Float.interpolateFrom 10 5 0.1
+--> 9.5
 ```
 
 Currently the only functions that have been implemented are ones that were
