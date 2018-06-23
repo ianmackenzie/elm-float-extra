@@ -3,7 +3,7 @@
     "name": "ianmackenzie/elm-float-extra",
     "summary": "Useful functionionality for Float values",
     "license": "MPL-2.0",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "exposed-modules": [
         "Float.Extra"
     ],
