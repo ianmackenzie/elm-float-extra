@@ -4,3 +4,4 @@ elm-stuff
 repl-temp-*
 # elm-verify-examples generated files
 tests/VerifyExamples
+elm.exe
