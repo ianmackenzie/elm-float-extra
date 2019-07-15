@@ -71,11 +71,14 @@ interpolateFrom start end parameter =
 {-| Construct a range of evenly-spaced values given a `start` value, an `end`
 value and the number of `steps` to take from the start to the end. The first
 value in the returned list will be equal to `start` and the last value will be
-equal to `end`. Note that the number of returned values will be one _greater_
-than the number of steps!
+equal to `end`. Note that the number of returned values will be one greater than
+the number of steps!
 
     Float.range { start = 0, end = 1, steps = 1 }
     --> [ 0, 1 ]
+
+    Float.range { start = 0, end = 1, steps = 2 }
+    --> [ 0, 0.5, 1 ]
 
     Float.range { start = 10, end = 20, steps = 2 }
     --> [ 10, 15, 20 ]
