@@ -1,11 +1,11 @@
-module Float.Extra exposing (equalWithin, interpolateFrom)
+module Float.Extra exposing (equalWithin, interpolateFrom, range)
 
 {-| Convenience functions for working with `Float` values. Examples assume that
 this module has been imported using:
 
     import Float.Extra as Float
 
-@docs equalWithin, interpolateFrom
+@docs equalWithin, interpolateFrom, range
 
 -}
 
@@ -63,5 +63,58 @@ interpolateFrom : Float -> Float -> Float -> Float
 interpolateFrom start end parameter =
     if parameter <= 0.5 then
         start + parameter * (end - start)
+
     else
         end + (1 - parameter) * (start - end)
+
+
+{-| Construct a range of evenly-spaced values given a `start` value, an `end`
+value and the number of `steps` to take from the start to the end. The first
+value in the returned list will be equal to `start` and the last value will be
+equal to `end`. Note that the number of returned values will be one _greater_
+than the number of steps!
+
+    Float.range { start = 0, end = 1, steps = 1 }
+    --> [ 0, 1 ]
+
+    Float.range { start = 10, end = 20, steps = 2 }
+    --> [ 10, 15, 20 ]
+
+    Float.range { start = 2, end = 3, steps = 5 }
+    --> [ 2, 2.2, 2.4, 2.6, 2.8, 3 ]
+
+The start and end values can be in either order:
+
+    Float.range { start = 1, end = 3, steps = 4 }
+    --> [ 1, 1.5, 2, 2.5, 3 ]
+
+    Float.range { start = 3, end = 1, steps = 4 }
+    --> [ 3, 2.5, 2, 1.5, 1 ]
+
+Passing a negative or zero `steps` value will result in an empty list being
+returned.
+
+-}
+range : { start : Float, end : Float, steps : Int } -> List Float
+range { start, end, steps } =
+    if steps > 0 then
+        rangeHelp start end steps (toFloat steps) []
+
+    else
+        []
+
+
+rangeHelp : Float -> Float -> Int -> Float -> List Float -> List Float
+rangeHelp start end i steps accumulatedValues =
+    let
+        value =
+            interpolateFrom start end (toFloat i / steps)
+
+        updatedValues =
+            value :: accumulatedValues
+    in
+    if i == 0 then
+        updatedValues
+
+    else
+        rangeHelp start end (i - 1) steps updatedValues
