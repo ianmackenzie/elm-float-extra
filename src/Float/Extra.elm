@@ -97,6 +97,23 @@ The start and end values can be in either order:
 Passing a negative or zero `steps` value will result in an empty list being
 returned.
 
+If you need finer control over what values get generated, try combining
+`interpolateFrom` with the various functions in the
+[`elm-1d-parameter`](https://package.elm-lang.org/packages/ianmackenzie/elm-1d-parameter/latest/)
+package. For example:
+
+    -- Same as using Float.range
+    Parameter1d.steps 5 (Float.interpolateFrom 2 3)
+    --> [ 2, 2.2, 2.4, 2.6, 2.8, 3 ]
+
+    -- Omit the last value
+    Parameter1d.leading 5 (Float.interpolateFrom 2 3)
+    --> [ 2, 2.2, 2.4, 2.6, 2.8 ]
+
+    -- Omit the first value
+    Parameter1d.trailing 5 (Float.interpolateFrom 2 3)
+    --> [ 2.2, 2.4, 2.6, 2.8, 3 ]
+
 -}
 range : { start : Float, end : Float, steps : Int } -> List Float
 range { start, end, steps } =
