@@ -1,6 +1,6 @@
 module Float.Extra exposing
     ( equalWithin, interpolateFrom, range
-    , isGreaterThan, isGreaterThanOrEqualTo, isLesserThan, isLesserThanOrEqualTo
+    , greaterThan, greaterThanOrEqualTo, lessThan, lessThanOrEqualTo
     )
 
 {-| Convenience functions for working with `Float` values. Examples assume that
@@ -146,58 +146,58 @@ rangeHelp start end i steps accumulatedValues =
 {-| Convenience function to make `>` comparisons using `|>` as
 `|> (>) someNumber` might be counter-intuitive:
 
-    42 |> Float.isGreaterThan 0 --> True
+    42 |> Float.greaterThan 0 --> True
 
-    42 |> Float.isGreaterThan 9000 --> False
+    42 |> Float.greaterThan 9000 --> False
 
-    42 |> Float.isGreaterThan 42 --> False
+    42 |> Float.greaterThan 42 --> False
 
 -}
-isGreaterThan : Float -> Float -> Bool
-isGreaterThan x y =
+greaterThan : Float -> Float -> Bool
+greaterThan x y =
     y > x
 
 
 {-| Convenience function to make `>=` comparisons using `|>` as
 `|> (>=) someNumber` might be counter-intuitive:
 
-    42 |> Float.isGreaterThanOrEqualTo 0 --> True
+    42 |> Float.greaterThanOrEqualTo 0 --> True
 
-    42 |> Float.isGreaterThanOrEqualTo 9000 --> False
+    42 |> Float.greaterThanOrEqualTo 9000 --> False
 
-    42 |> Float.isGreaterThanOrEqualTo 42 --> True
+    42 |> Float.greaterThanOrEqualTo 42 --> True
 
 -}
-isGreaterThanOrEqualTo : Float -> Float -> Bool
-isGreaterThanOrEqualTo x y =
+greaterThanOrEqualTo : Float -> Float -> Bool
+greaterThanOrEqualTo x y =
     y >= x
 
 
 {-| Convenience function to make `<` comparisons using `|>` as
 `|> (<) someNumber` might be counter-intuitive:
 
-    42 |> Float.isLesserThan 0 --> False
+    42 |> Float.lessThan 0 --> False
 
-    42 |> Float.isLesserThan 9000 --> True
+    42 |> Float.lessThan 9000 --> True
 
-    42 |> Float.isLesserThan 42 --> False
+    42 |> Float.lessThan 42 --> False
 
 -}
-isLesserThan : Float -> Float -> Bool
-isLesserThan x y =
+lessThan : Float -> Float -> Bool
+lessThan x y =
     y < x
 
 
 {-| Convenience function to make `<=` comparisons using `|>` as
 `|> (<=) someNumber` might be counter-intuitive:
 
-    42 |> Float.isLesserThanOrEqualTo 0 --> False
+    42 |> Float.lessThanOrEqualTo 0 --> False
 
-    42 |> Float.isLesserThanOrEqualTo 9000 --> True
+    42 |> Float.lessThanOrEqualTo 9000 --> True
 
-    42 |> Float.isLesserThanOrEqualTo 42 --> True
+    42 |> Float.lessThanOrEqualTo 42 --> True
 
 -}
-isLesserThanOrEqualTo : Float -> Float -> Bool
-isLesserThanOrEqualTo x y =
+lessThanOrEqualTo : Float -> Float -> Bool
+lessThanOrEqualTo x y =
     y <= x
