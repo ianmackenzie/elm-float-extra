@@ -1,6 +1,6 @@
 module Float.Extra exposing
-    ( equalWithin, interpolateFrom, range
-    , greaterThan, greaterThanOrEqualTo, lessThan, lessThanOrEqualTo
+    ( interpolateFrom, range
+    , equalWithin, greaterThan, lessThan, greaterThanOrEqualTo, lessThanOrEqualTo
     )
 
 {-| Convenience functions for working with `Float` values. Examples assume that
@@ -8,7 +8,15 @@ this module has been imported using:
 
     import Float.Extra as Float
 
-@docs equalWithin, interpolateFrom, range
+
+## Interpolation
+
+@docs interpolateFrom, range
+
+
+## Comparisons
+
+@docs equalWithin, greaterThan, lessThan, greaterThanOrEqualTo, lessThanOrEqualTo
 
 -}
 
