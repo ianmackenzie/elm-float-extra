@@ -151,7 +151,7 @@ rangeHelp start end i steps accumulatedValues =
         rangeHelp start end (i - 1) steps updatedValues
 
 
-{-| Convenience function to make `>` comparisons using `|>` as
+{-| Convenience function to make `>` comparisons using `|>`, as
 `|> (>) someNumber` might be counter-intuitive:
 
     42 |> Float.greaterThan 0 --> True
@@ -166,7 +166,7 @@ greaterThan x y =
     y > x
 
 
-{-| Convenience function to make `>=` comparisons using `|>` as
+{-| Convenience function to make `>=` comparisons using `|>`, as
 `|> (>=) someNumber` might be counter-intuitive:
 
     42 |> Float.greaterThanOrEqualTo 0 --> True
@@ -181,7 +181,7 @@ greaterThanOrEqualTo x y =
     y >= x
 
 
-{-| Convenience function to make `<` comparisons using `|>` as
+{-| Convenience function to make `<` comparisons using `|>`, as
 `|> (<) someNumber` might be counter-intuitive:
 
     42 |> Float.lessThan 0 --> False
@@ -196,7 +196,7 @@ lessThan x y =
     y < x
 
 
-{-| Convenience function to make `<=` comparisons using `|>` as
+{-| Convenience function to make `<=` comparisons using `|>`, as
 `|> (<=) someNumber` might be counter-intuitive:
 
     42 |> Float.lessThanOrEqualTo 0 --> False
