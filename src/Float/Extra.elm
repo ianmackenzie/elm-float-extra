@@ -154,11 +154,14 @@ rangeHelp start end i steps accumulatedValues =
 {-| Convenience function to make `>` comparisons using `|>`, as
 `|> (>) someNumber` might be counter-intuitive:
 
-    42 |> Float.greaterThan 0 --> True
+    42 |> Float.greaterThan 0
+    --> True
 
-    42 |> Float.greaterThan 9000 --> False
+    42 |> Float.greaterThan 9000
+    --> False
 
-    42 |> Float.greaterThan 42 --> False
+    42 |> Float.greaterThan 42
+    --> False
 
 -}
 greaterThan : Float -> Float -> Bool
@@ -169,11 +172,14 @@ greaterThan x y =
 {-| Convenience function to make `>=` comparisons using `|>`, as
 `|> (>=) someNumber` might be counter-intuitive:
 
-    42 |> Float.greaterThanOrEqualTo 0 --> True
+    42 |> Float.greaterThanOrEqualTo 0
+    --> True
 
-    42 |> Float.greaterThanOrEqualTo 9000 --> False
+    42 |> Float.greaterThanOrEqualTo 9000
+    --> False
 
-    42 |> Float.greaterThanOrEqualTo 42 --> True
+    42 |> Float.greaterThanOrEqualTo 42
+    --> True
 
 -}
 greaterThanOrEqualTo : Float -> Float -> Bool
@@ -184,11 +190,14 @@ greaterThanOrEqualTo x y =
 {-| Convenience function to make `<` comparisons using `|>`, as
 `|> (<) someNumber` might be counter-intuitive:
 
-    42 |> Float.lessThan 0 --> False
+    42 |> Float.lessThan 0
+    --> False
 
-    42 |> Float.lessThan 9000 --> True
+    42 |> Float.lessThan 9000
+    --> True
 
-    42 |> Float.lessThan 42 --> False
+    42 |> Float.lessThan 42
+    --> False
 
 -}
 lessThan : Float -> Float -> Bool
@@ -199,11 +208,14 @@ lessThan x y =
 {-| Convenience function to make `<=` comparisons using `|>`, as
 `|> (<=) someNumber` might be counter-intuitive:
 
-    42 |> Float.lessThanOrEqualTo 0 --> False
+    42 |> Float.lessThanOrEqualTo 0
+    --> False
 
-    42 |> Float.lessThanOrEqualTo 9000 --> True
+    42 |> Float.lessThanOrEqualTo 9000
+    --> True
 
-    42 |> Float.lessThanOrEqualTo 42 --> True
+    42 |> Float.lessThanOrEqualTo 42
+    --> True
 
 -}
 lessThanOrEqualTo : Float -> Float -> Bool
