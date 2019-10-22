@@ -1,5 +1,6 @@
 module Float.Extra exposing
-    ( interpolateFrom, range
+    ( infinity, positiveInfinity, negativeInfinity
+    , interpolateFrom, range
     , equalWithin, greaterThan, lessThan, greaterThanOrEqualTo, lessThanOrEqualTo
     )
 
@@ -7,6 +8,11 @@ module Float.Extra exposing
 this module has been imported using:
 
     import Float.Extra as Float
+
+
+## Constants
+
+@docs infinity, positiveInfinity, negativeInfinity
 
 
 ## Interpolation
@@ -24,6 +30,28 @@ this module has been imported using:
 
    import Float.Extra as Float
 -}
+
+
+{-| Alias for `positiveInfinity`.
+-}
+infinity : Float
+infinity =
+    positiveInfinity
+
+
+{-| Positive infinity! This is just a more explicit/readable way of writing `1 /
+0`.
+-}
+positiveInfinity : Float
+positiveInfinity =
+    1 / 0
+
+
+{-| Negative infinity.
+-}
+negativeInfinity : Float
+negativeInfinity =
+    -1 / 0
 
 
 {-| Check if two values are equal within a given tolerance.

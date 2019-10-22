@@ -4,6 +4,8 @@ module Tests exposing
     , interpolateFrom
     , lessThan
     , lessThanOrEqualTo
+    , negativeInfinity
+    , positiveInfinity
     , range
     )
 
@@ -188,4 +190,30 @@ lessThanOrEqualTo =
                     |> Float.lessThanOrEqualTo x
                     |> Expect.equal True
             )
+        ]
+
+
+positiveInfinity : Test
+positiveInfinity =
+    Test.describe "positiveInfinity"
+        [ Test.test "positiveInfinity is greater than any finite Float" <|
+            \() ->
+                Float.positiveInfinity |> Expect.greaterThan 1.0e308
+        , Test.test "positiveInfinity is not NaN" <|
+            \() ->
+                Expect.false "Expected isNaN to return False"
+                    (isNaN Float.positiveInfinity)
+        ]
+
+
+negativeInfinity : Test
+negativeInfinity =
+    Test.describe "negativeInfinity"
+        [ Test.test "negativeInfinity is less than any finite Float" <|
+            \() ->
+                Float.negativeInfinity |> Expect.lessThan -1.0e308
+        , Test.test "negativeInfinity is not NaN" <|
+            \() ->
+                Expect.false "Expected isNaN to return False"
+                    (isNaN Float.negativeInfinity)
         ]
