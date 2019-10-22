@@ -199,6 +199,10 @@ positiveInfinity =
         [ Test.test "positiveInfinity is greater than any finite Float" <|
             \() ->
                 Float.positiveInfinity |> Expect.greaterThan 1.0e308
+        , Test.test "positiveInfinity is infinite" <|
+            \() ->
+                Expect.true "Expected isInfinite to return True"
+                    (isInfinite Float.positiveInfinity)
         , Test.test "positiveInfinity is not NaN" <|
             \() ->
                 Expect.false "Expected isNaN to return False"
@@ -212,6 +216,10 @@ negativeInfinity =
         [ Test.test "negativeInfinity is less than any finite Float" <|
             \() ->
                 Float.negativeInfinity |> Expect.lessThan -1.0e308
+        , Test.test "negativeInfinity is infinite" <|
+            \() ->
+                Expect.true "Expected isInfinite to return True"
+                    (isInfinite Float.negativeInfinity)
         , Test.test "negativeInfinity is not NaN" <|
             \() ->
                 Expect.false "Expected isNaN to return False"
