@@ -1,31 +1,43 @@
+# elm-float-extra
+
 This package contains some basic utilities for working with `Float` values in
-[Elm](http://elm-lang.org). The current (very limited) API can be summed up by a
-few examples:
+[Elm](http://elm-lang.org). I recommmend using it as:
 
 ```elm
 import Float.Extra as Float
+```
 
-Float.equalWithin 1e-6 1.9999 2.0001
---> False
+Functionality is provided for comparisons...
 
+```elm
 Float.equalWithin 1e-3 1.9999 2.0001
 --> True
 
+List.filter (Float.lessThan 1) [ 0, 0.5, 1, 1.5, 2 ]
+--> [ 0, 0.5 ]
+```
+
+...interpolation...
+
+```elm
 Float.interpolateFrom 5 10 0.6
 --> 8
-
-Float.interpolateFrom 10 5 0.1
---> 9.5
-
-Float.range { start = 0, end = 1, steps = 5 }
---> [ 0, 0.2, 0.4, 0.6, 0.8, 1 ]
 
 Float.range { start = 20, end = 30, steps = 4 }
 --> [ 20, 22.5, 25, 27.5, 30 ]
 ```
 
-Currently the only functions that have been implemented are ones that were
-needed by the `elm-interval` and `elm-geometry` packages, but I'm happy to
-consider pull requests for other generally-useful functionality. Please
-[open a new issue](https://github.com/ianmackenzie/elm-float-extra/issues)
-before starting work, though, so we can discuss different approaches!
+...and some constants:
+
+```elm
+Float.positiveInfinity
+--> Infinity
+```
+
+## Contributing
+
+Yes please! I'm very open to bug fixes and requests for new functionality.
+Please [open a new
+issue](https://github.com/ianmackenzie/elm-float-extra/issues) or send me
+(**@ianmackenzie**) a message on the [Elm Slack](https://elmlang.herokuapp.com/)
+before starting any major work, though, so we can discuss different approaches.
