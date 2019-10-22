@@ -1,4 +1,11 @@
-module Tests exposing (interpolateFrom, range)
+module Tests exposing
+    ( greaterThan
+    , greaterThanOrEqualTo
+    , interpolateFrom
+    , lessThan
+    , lessThanOrEqualTo
+    , range
+    )
 
 import Expect exposing (Expectation)
 import Float.Extra as Float
@@ -71,21 +78,24 @@ greaterThan =
             Fuzz.float
             "Any number x should not be greater than x + 1"
             (\x ->
-                Float.greaterThan x (x + 1)
+                x
+                    |> Float.greaterThan (x + 1)
                     |> Expect.equal False
             )
         , Test.fuzz
             Fuzz.float
             "Any number x should be greater than x - 1"
             (\x ->
-                Float.greaterThan x (x - 1)
+                x
+                    |> Float.greaterThan (x - 1)
                     |> Expect.equal True
             )
         , Test.fuzz
             Fuzz.float
             "Any number x should not be greater than iself"
             (\x ->
-                Float.greaterThan x x
+                x
+                    |> Float.greaterThan x
                     |> Expect.equal False
             )
         ]
@@ -98,21 +108,24 @@ greaterThanOrEqualTo =
             Fuzz.float
             "Any number x should not be greater than or equal to x + 1"
             (\x ->
-                Float.greaterThanOrEqualTo x (x + 1)
+                x
+                    |> Float.greaterThanOrEqualTo (x + 1)
                     |> Expect.equal False
             )
         , Test.fuzz
             Fuzz.float
             "Any number x should be greater than or equal to x - 1"
             (\x ->
-                Float.greaterThanOrEqualTo x (x - 1)
+                x
+                    |> Float.greaterThanOrEqualTo (x - 1)
                     |> Expect.equal True
             )
         , Test.fuzz
             Fuzz.float
             "Any number x should be greater or equal to iself"
             (\x ->
-                Float.greaterThanOrEqualTo x x
+                x
+                    |> Float.greaterThanOrEqualTo x
                     |> Expect.equal True
             )
         ]
@@ -125,21 +138,24 @@ lessThan =
             Fuzz.float
             "Any number x should be less than x + 1"
             (\x ->
-                Float.lessThan x (x + 1)
+                x
+                    |> Float.lessThan (x + 1)
                     |> Expect.equal True
             )
         , Test.fuzz
             Fuzz.float
             "Any number x should not be less than x - 1"
             (\x ->
-                Float.lessThan x (x - 1)
+                x
+                    |> Float.lessThan (x - 1)
                     |> Expect.equal False
             )
         , Test.fuzz
             Fuzz.float
             "Any number x should not be less than iself"
             (\x ->
-                Float.lessThan x x
+                x
+                    |> Float.lessThan x
                     |> Expect.equal False
             )
         ]
@@ -152,21 +168,24 @@ lessThanOrEqualTo =
             Fuzz.float
             "Any number x should be less than or equal to x + 1"
             (\x ->
-                Float.lessThan x (x + 1)
+                x
+                    |> Float.lessThanOrEqualTo (x + 1)
                     |> Expect.equal True
             )
         , Test.fuzz
             Fuzz.float
             "Any number x should not be less than or equal to  x - 1"
             (\x ->
-                Float.lessThan x (x - 1)
+                x
+                    |> Float.lessThanOrEqualTo (x - 1)
                     |> Expect.equal False
             )
         , Test.fuzz
             Fuzz.float
             "Any number x should be less than or equal to iself"
             (\x ->
-                Float.lessThan x x
+                x
+                    |> Float.lessThanOrEqualTo x
                     |> Expect.equal True
             )
         ]
