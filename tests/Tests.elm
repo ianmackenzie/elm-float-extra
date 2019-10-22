@@ -62,3 +62,111 @@ range =
                     |> Expect.equal (Just end)
             )
         ]
+
+
+greaterThan : Test
+greaterThan =
+    Test.describe "greaterThan"
+        [ Test.fuzz
+            Fuzz.float
+            "Any number x should not be greater than x + 1"
+            (\x ->
+                Float.greaterThan x (x + 1)
+                    |> Expect.equal False
+            )
+        , Test.fuzz
+            Fuzz.float
+            "Any number x should be greater than x - 1"
+            (\x ->
+                Float.greaterThan x (x - 1)
+                    |> Expect.equal True
+            )
+        , Test.fuzz
+            Fuzz.float
+            "Any number x should not be greater than iself"
+            (\x ->
+                Float.greaterThan x x
+                    |> Expect.equal False
+            )
+        ]
+
+
+greaterThanOrEqualTo : Test
+greaterThanOrEqualTo =
+    Test.describe "greaterThanOrEqualTo"
+        [ Test.fuzz
+            Fuzz.float
+            "Any number x should not be greater than or equal to x + 1"
+            (\x ->
+                Float.greaterThanOrEqualTo x (x + 1)
+                    |> Expect.equal False
+            )
+        , Test.fuzz
+            Fuzz.float
+            "Any number x should be greater than or equal to x - 1"
+            (\x ->
+                Float.greaterThanOrEqualTo x (x - 1)
+                    |> Expect.equal True
+            )
+        , Test.fuzz
+            Fuzz.float
+            "Any number x should be greater or equal to iself"
+            (\x ->
+                Float.greaterThanOrEqualTo x x
+                    |> Expect.equal True
+            )
+        ]
+
+
+lessThan : Test
+lessThan =
+    Test.describe "lessThan"
+        [ Test.fuzz
+            Fuzz.float
+            "Any number x should be less than x + 1"
+            (\x ->
+                Float.lessThan x (x + 1)
+                    |> Expect.equal True
+            )
+        , Test.fuzz
+            Fuzz.float
+            "Any number x should not be less than x - 1"
+            (\x ->
+                Float.lessThan x (x - 1)
+                    |> Expect.equal False
+            )
+        , Test.fuzz
+            Fuzz.float
+            "Any number x should not be less than iself"
+            (\x ->
+                Float.lessThan x x
+                    |> Expect.equal False
+            )
+        ]
+
+
+lessThanOrEqualTo : Test
+lessThanOrEqualTo =
+    Test.describe "lessThanOrEqualTo"
+        [ Test.fuzz
+            Fuzz.float
+            "Any number x should be less than or equal to x + 1"
+            (\x ->
+                Float.lessThan x (x + 1)
+                    |> Expect.equal True
+            )
+        , Test.fuzz
+            Fuzz.float
+            "Any number x should not be less than or equal to  x - 1"
+            (\x ->
+                Float.lessThan x (x - 1)
+                    |> Expect.equal False
+            )
+        , Test.fuzz
+            Fuzz.float
+            "Any number x should be less than or equal to iself"
+            (\x ->
+                Float.lessThan x x
+                    |> Expect.equal True
+            )
+        ]

@@ -1,11 +1,22 @@
-module Float.Extra exposing (equalWithin, interpolateFrom, range)
+module Float.Extra exposing
+    ( interpolateFrom, range
+    , equalWithin, greaterThan, lessThan, greaterThanOrEqualTo, lessThanOrEqualTo
+    )
 
 {-| Convenience functions for working with `Float` values. Examples assume that
 this module has been imported using:
 
     import Float.Extra as Float
 
-@docs equalWithin, interpolateFrom, range
+
+## Interpolation
+
+@docs interpolateFrom, range
+
+
+## Comparisons
+
+@docs equalWithin, greaterThan, lessThan, greaterThanOrEqualTo, lessThanOrEqualTo
 
 -}
 
@@ -138,3 +149,75 @@ rangeHelp start end i steps accumulatedValues =
 
     else
         rangeHelp start end (i - 1) steps updatedValues
+
+
+{-| Convenience function to make `>` comparisons using `|>`, as
+`|> (>) someNumber` might be counter-intuitive:
+
+    42 |> Float.greaterThan 0
+    --> True
+
+    42 |> Float.greaterThan 9000
+    --> False
+
+    42 |> Float.greaterThan 42
+    --> False
+
+-}
+greaterThan : Float -> Float -> Bool
+greaterThan x y =
+    y > x
+
+
+{-| Convenience function to make `>=` comparisons using `|>`, as
+`|> (>=) someNumber` might be counter-intuitive:
+
+    42 |> Float.greaterThanOrEqualTo 0
+    --> True
+
+    42 |> Float.greaterThanOrEqualTo 9000
+    --> False
+
+    42 |> Float.greaterThanOrEqualTo 42
+    --> True
+
+-}
+greaterThanOrEqualTo : Float -> Float -> Bool
+greaterThanOrEqualTo x y =
+    y >= x
+
+
+{-| Convenience function to make `<` comparisons using `|>`, as
+`|> (<) someNumber` might be counter-intuitive:
+
+    42 |> Float.lessThan 0
+    --> False
+
+    42 |> Float.lessThan 9000
+    --> True
+
+    42 |> Float.lessThan 42
+    --> False
+
+-}
+lessThan : Float -> Float -> Bool
+lessThan x y =
+    y < x
+
+
+{-| Convenience function to make `<=` comparisons using `|>`, as
+`|> (<=) someNumber` might be counter-intuitive:
+
+    42 |> Float.lessThanOrEqualTo 0
+    --> False
+
+    42 |> Float.lessThanOrEqualTo 9000
+    --> True
+
+    42 |> Float.lessThanOrEqualTo 42
+    --> True
+
+-}
+lessThanOrEqualTo : Float -> Float -> Bool
+lessThanOrEqualTo x y =
+    y <= x
